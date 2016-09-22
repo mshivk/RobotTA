@@ -5,10 +5,12 @@ Library  Selenium2Library
 ${HOST}     localhost:7272
 ${URL}  http://${HOST}
 ${DELAY}    0
+${HEADLESS}          ${False}
 
  *** Keywords ***
 Open login page
-    Open Browser  ${URL}
+    Run Keyword If    '${HEADLESS}'=='True'    Start Virtual Display    1920    1080 
+    Open Browser  ${URL}    
     Set Selenium speed  ${DELAY}
 Give Username
     [Arguments]    ${userbname}

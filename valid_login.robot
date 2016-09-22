@@ -6,6 +6,7 @@ Login should pass
     #Open Browser  http://localhost:7272
     Open login page
     #Input text  username_field    demo
+    Sleep    7s
     Give Username    demo
     Give Password   mode
     Click Button  login_button
