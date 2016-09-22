@@ -6,12 +6,15 @@ ${HOST}     localhost:7272
 ${URL}  http://${HOST}
 ${DELAY}    0
 ${HEADLESS}          ${False}
+${BROWSER}           Firefox
 
  *** Keywords ***
 Open login page
     Run Keyword If    '${HEADLESS}'=='True'    Start Virtual Display    1920    1080 
-    Open Browser  ${URL}    
+    Open Browser  ${URL}     ${BROWSER}  
+    Maximize Browser Window
     Set Selenium speed  ${DELAY}
+    
 Give Username
     [Arguments]    ${userbname}
     Input text    username_field    ${userbname}
